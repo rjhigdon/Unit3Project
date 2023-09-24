@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h2>Name: {{ melon.common_name }}</h2>
+    <img class="melon-image" src="{{melon.image_url}}">
+    <h5>Price: {{ melon.price_str() }} </h5>
+    <ul>
+        <li>Color: {{ melon.color }} </li>
+        {% if melon.seedless %}
+            <li>Seedless</li>
+        {% else %}
+            <li> Warning: This one has seeds! </li>
+        {% endif %}
+    </ul>
+
+    <a href="{{ url_for('add_to_cart', melon_id=melon.melon_id) }}" 
+    class="btn btn-primary">Add to Cart</a>
+{% endblock %}]
